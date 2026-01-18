@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canqihe's Skills - Claude Code Custom Skills Collection</title>
+
+    <!-- Favicon -->
+    <link rel="icon" id="favicon" type="image/png" href="">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tocbot CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.css">
+
+    <!-- Highlight.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css?v=1">
+</head>
+<body>
+    <!-- Paper Texture Overlay -->
+    <div class="paper-texture"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar glass">
+        <div class="navbar-container">
+            <a class="navbar-brand" id="repoLink" href="https://github.com/canqihe/canq-skills" target="_blank">
+                <img class="brand-avatar" id="userAvatar" src="" alt="Canqihe">
+                <span class="brand-text">Canqihe's Skills</span>
+            </a>
+
+            <div class="navbar-actions">
+                <button class="icon-btn" id="langToggle" title="Switch Language">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span class="lang-label">EN</span>
+                </button>
+
+                <button class="icon-btn mobile-menu-toggle" id="mobileMenuToggle" title="Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content glass">
+            <button class="mobile-menu-close" id="mobileMenuClose">×</button>
+            <div class="mobile-menu-skills" id="mobileMenuSkills">
+                <!-- Skills will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container three-column">
+        <!-- Left Sidebar -->
+        <aside class="sidebar glass">
+            <div class="sidebar-content">
+                <div class="sidebar-section">
+                    <h4 class="sidebar-heading" data-i18n="skills">Skills</h4>
+                    <nav class="sidebar-nav" id="sidebarSkills">
+                        <!-- Skills will be dynamically populated -->
+                    </nav>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4 class="sidebar-heading" data-i18n="onThisPage">On This Page</h4>
+                    <div class="js-toc"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <article class="js-toc-content content-card glass" id="content">
+                <div class="loading" data-i18n="loading">Loading...</div>
+            </article>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar-right glass">
+            <div class="sidebar-content">
+                <div class="sidebar-section">
+                    <h4 class="sidebar-heading" data-i18n="installation">Installation</h4>
+                    <p class="install-desc" data-i18n="installDesc">The easiest way to install:</p>
+                    <div class="install-code">
+                        <pre><code><span class="comment"># <span data-i18n="addMarketplace">Add marketplace</span></span>
+<span class="cmd">/plugin marketplace add canqihe/canq-skills</span>
+
+<span class="comment"># <span data-i18n="installSkills">Install skills</span></span>
+<span class="cmd">/plugin install &lt;skill-name&gt;@canqihe-canq-skills</span></code></pre>
+                    </div>
+                    <a class="install-link" href="https://github.com/canqihe/canq-skills#installation" target="_blank" data-i18n="moreOptions">More installation options</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Made with <span class="heart">♥</span> by <a id="footerLink" href="">Canqihe's skills</a></p>
+        </div>
+    </footer>
+
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js?v=1"></script>
+</body>
+</html>
