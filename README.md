@@ -30,6 +30,7 @@ My collection of custom Claude Code skills for productivity and automation.
 | [notebooklm](./notebooklm/) | Query Google NotebookLM notebooks |
 | [pdf](./pdf/) | Comprehensive PDF manipulation toolkit |
 | [pptx](./pptx/) | Presentation creation and editing |
+| [port-allocator](./port-allocator/) | Automatically allocate and manage development server ports |
 | [product-master](./product-master/) | Product photography prompt generator |
 | [prompt-analyzer](./prompt-analyzer/) | Analyze and compare prompts |
 | [prompt-extractor](./prompt-extractor/) | Extract modular structures from prompts |
@@ -37,6 +38,9 @@ My collection of custom Claude Code skills for productivity and automation.
 | [prompt-master](./prompt-master/) | Master prompt controller |
 | [prompt-xray](./prompt-xray/) | Reverse engineer knowledge from prompts |
 | [skill-creator](./skill-creator/) | Guide for creating effective skills |
+| [share-skill](./share-skill/) | Automatically share skills and migrate to code repositories |
+| [skill-i18n](./skill-i18n/) | Translate skill documentation into multiple languages |
+| [skill-permissions](./skill-permissions/) | Analyze skill permissions and batch authorization |
 | [slack-gif-creator](./slack-gif-creator/) | Create animated GIFs for Slack |
 | [theme-factory](./theme-factory/) | Toolkit for styling artifacts with themes |
 | [ui-skills](./ui-skills/) | Opinionated constraints for building interfaces |
