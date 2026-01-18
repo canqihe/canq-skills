@@ -1,0 +1,193 @@
+{
+  "name": "canqihe-skills",
+  "owner": {
+    "name": "canqihe",
+    "email": "canqihe@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "A collection of productivity skills for Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "ai-ui-generator",
+      "source": "./ai-ui-generator",
+      "description": "Universal AI-powered UI component generator"
+    },
+    {
+      "name": "algorithmic-art",
+      "source": "./algorithmic-art",
+      "description": "Creating algorithmic art using p5.js with seeded randomness"
+    },
+    {
+      "name": "art-master",
+      "source": "./art-master",
+      "description": "Art style master controller - generates art style prompts"
+    },
+    {
+      "name": "brand-guidelines",
+      "source": "./brand-guidelines",
+      "description": "Applies Anthropic's official brand colors and typography"
+    },
+    {
+      "name": "canvas-design",
+      "source": "./canvas-design",
+      "description": "Create beautiful visual art in .png and .pdf documents"
+    },
+    {
+      "name": "design-master",
+      "source": "./design-master",
+      "description": "Graphic design master controller - generates design prompts"
+    },
+    {
+      "name": "doc-coauthoring",
+      "source": "./doc-coauthoring",
+      "description": "Guide users through structured workflow for co-authoring documentation"
+    },
+    {
+      "name": "docx",
+      "source": "./docx",
+      "description": "Comprehensive document creation, editing, and analysis"
+    },
+    {
+      "name": "domain-classifier",
+      "source": "./domain-classifier",
+      "description": "AI domain classifier - intelligently analyzes prompt content"
+    },
+    {
+      "name": "ec-view",
+      "source": "./ec-view",
+      "description": "E-commerce KV visual system prompt generator"
+    },
+    {
+      "name": "frontend-design",
+      "source": "./frontend-design",
+      "description": "Create distinctive, production-grade frontend interfaces"
+    },
+    {
+      "name": "infographic-creator",
+      "source": "./infographic-creator",
+      "description": "Create beautiful infographics based on text content"
+    },
+    {
+      "name": "intelligent-prompt-generator",
+      "source": "./intelligent-prompt-generator",
+      "description": "Intelligent prompt generator v2.0 with semantic understanding"
+    },
+    {
+      "name": "internal-comms",
+      "source": "./internal-comms",
+      "description": "Resources for writing internal communications"
+    },
+    {
+      "name": "mcp-builder",
+      "source": "./mcp-builder",
+      "description": "Guide for creating high-quality MCP servers"
+    },
+    {
+      "name": "notebooklm",
+      "source": "./notebooklm",
+      "description": "Query Google NotebookLM notebooks directly from Claude Code"
+    },
+    {
+      "name": "pdf",
+      "source": "./pdf",
+      "description": "Comprehensive PDF manipulation toolkit"
+    },
+    {
+      "name": "pptx",
+      "source": "./pptx",
+      "description": "Presentation creation, editing, and analysis"
+    },
+    {
+      "name": "product-master",
+      "source": "./product-master",
+      "description": "Product photography master controller"
+    },
+    {
+      "name": "prompt-analyzer",
+      "source": "./prompt-analyzer",
+      "description": "Prompt analysis and insights tool"
+    },
+    {
+      "name": "prompt-extractor",
+      "source": "./prompt-extractor",
+      "description": "Automatically extract modular structures from AI prompts"
+    },
+    {
+      "name": "prompt-generator",
+      "source": "./prompt-generator",
+      "description": "Generate prompts based on element database"
+    },
+    {
+      "name": "prompt-master",
+      "source": "./prompt-master",
+      "description": "Master prompt controller with intelligent domain routing"
+    },
+    {
+      "name": "prompt-xray",
+      "source": "./prompt-xray",
+      "description": "Reverse engineer knowledge from excellent prompts"
+    },
+    {
+      "name": "skill-creator",
+      "source": "./skill-creator",
+      "description": "Guide for creating effective Claude Code skills"
+    },
+    {
+      "name": "slack-gif-creator",
+      "source": "./slack-gif-creator",
+      "description": "Create animated GIFs optimized for Slack"
+    },
+    {
+      "name": "theme-factory",
+      "source": "./theme-factory",
+      "description": "Toolkit for styling artifacts with themes"
+    },
+    {
+      "name": "ui-skills",
+      "source": "./ui-skills",
+      "description": "Opinionated constraints for building better interfaces"
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "source": "./ui-ux-pro-max",
+      "description": "UI/UX design intelligence with 50+ styles"
+    },
+    {
+      "name": "universal-learner",
+      "source": "./universal-learner",
+      "description": "Universal learner from prompts in any domain"
+    },
+    {
+      "name": "video-master",
+      "source": "./video-master",
+      "description": "Video generation master controller"
+    },
+    {
+      "name": "web-artifacts-builder",
+      "source": "./web-artifacts-builder",
+      "description": "Build elaborate multi-component HTML artifacts"
+    },
+    {
+      "name": "web_style",
+      "source": "./web_style",
+      "description": "Website design style generator with 21 preset styles"
+    },
+    {
+      "name": "webapp-testing",
+      "source": "./webapp-testing",
+      "description": "Toolkit for testing local web applications"
+    },
+    {
+      "name": "xlsx",
+      "source": "./xlsx",
+      "description": "Comprehensive spreadsheet toolkit"
+    },
+    {
+      "name": "z-image",
+      "source": "./z-image",
+      "description": "Z-Image generation using ModelScope API"
+    }
+  ]
+}

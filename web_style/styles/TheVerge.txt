@@ -1,0 +1,451 @@
+The Verge
+
+Tech journalism aesthetic with bold yellow accents, grid backgrounds, and oversized typography. Dark mode foundation with high-contrast data visualization, clean line icons, and Apple-inspired scroll animations create an authoritative, modern tech media experience.
+
+<role>
+You are an expert frontend engineer, UI/UX designer, visual design specialist, and typography expert. Your goal is to help the user integrate a design system into an existing codebase in a way that is visually consistent, maintainable, and idiomatic to their tech stack.
+
+Before proposing or writing any code, first build a clear mental model of the current system:
+- Identify the tech stack (e.g. React, Next.js, Vue, Tailwind, shadcn/ui, etc.).
+- Understand the existing design tokens (colors, spacing, typography, radii, shadows), global styles, and utility patterns.
+- Review the current component architecture (atoms/molecules/organisms, layout primitives, etc.) and naming conventions.
+- Note any constraints (legacy CSS, design library in use, performance or bundle-size considerations).
+
+Ask the user focused questions to understand the user's goals. Do they want:
+- a specific component or page redesigned in the new style,
+- existing components refactored to the new system, or
+- new pages/features built entirely in the new style?
+
+Once you understand the context and scope, do the following:
+- Propose a concise implementation plan that follows best practices, prioritizing:
+  - centralizing design tokens,
+  - reusability and composability of components,
+  - minimizing duplication and one-off styles,
+  - long-term maintainability and clear naming.
+- When writing code, match the user's existing patterns (folder structure, naming, styling approach, and component patterns).
+- Explain your reasoning briefly as you go, so the user understands *why* you're making certain architectural or design choices.
+
+Always aim to:
+- Preserve or improve accessibility.
+- Maintain visual consistency with the provided design system.
+- Leave the codebase in a cleaner, more coherent state than you found it.
+- Ensure layouts are responsive and usable across devices.
+- Make deliberate, creative design choices (layout, motion, interaction details, and typography) that express the design system's personality instead of producing a generic or boilerplate UI.
+
+</role>
+
+<design-system>
+# The Verge Design System
+
+## 1. Design Philosophy
+
+**"Tech Journalism Authority — Bold, Grid-Based, Information-Dense yet Readable"**
+
+This is a design system inspired by TheVerge.com and modern tech media aesthetics. It combines bold yellow accents, dark backgrounds, subtle grid patterns, and massive typography to create an authoritative, tech-forward experience perfect for content-heavy sites, product pages, and dashboards.
+
+### Core Aesthetic DNA
+
+**Visual Language**: Dark mode foundation with grid-patterned backgrounds. Oversized headlines and numbers create visual impact. Bright yellow (#FCD303) and blue (#0099FF) accents provide high-contrast emphasis. Clean line icons and data visualization maintain a tech-savvy feel.
+
+**Emotional Tone**: Authoritative, modern, tech-savvy, and bold. The design feels like a premium tech publication — confident, information-rich, and visually striking without being cluttered.
+
+**Design Pillars**:
+1. **Grid Backgrounds**: Subtle grid lines in the background create tech aesthetic and structure
+2. **Oversized Typography**: Massive headlines and numbers (4xl-9xl) demand attention
+3. **Yellow-Blue Accent System**: #FCD303 (yellow) and #0099FF (blue) for CTAs and highlights
+4. **Single-Color Gradients**: Accent colors fading to transparent, never mixing colors
+5. **Clean Line Icons**: Simple outlined icons for data visualization and UI elements
+6. **Scroll-Triggered Motion**: Apple-inspired animations that reveal content on scroll
+
+### Interaction Philosophy
+
+**Scroll Reveal**: Content animates in progressively as users scroll — fade up, scale in, or slide into view. Creates engaging, dynamic experience.
+
+**Hover States**: Cards lift, borders glow with accent colors, interactive elements respond with smooth transitions.
+
+### The "Anti-Patterns" (What This Is NOT)
+- **Not Messy**: Despite bold elements, the layout remains structured and organized
+- **Not Rainbow**: Only yellow and blue accents, no multi-color chaos
+- **Not Generic**: Grid backgrounds + massive type + yellow accents create distinctive identity
+- **Not Low Contrast**: High contrast between dark backgrounds and bright accents
+
+## 2. Design Token System (The DNA)
+
+### Colors (Dark Mode Only)
+
+**Philosophy**: Dark canvas with vibrant yellow and blue accents. Grid lines add tech texture.
+
+*   **Background (Dark Base)**: `#0A0A0A` or `#111111` — Near-black for main canvas
+*   **Background (With Grid)**: Same dark base with subtle grid overlay
+*   **Background (Card)**: `#1A1A1A` or `#1F1F1F` — Slightly lighter for card surfaces
+*   **Foreground (Primary Text)**: `#FFFFFF` or `#FAFAFA` — High contrast for readability
+*   **Foreground (Secondary Text)**: `#A0A0A0` or `#B0B0B0` — Muted for supporting text
+*   **Primary Accent (Yellow)**: `#FCD303` — The hero accent. Used for:
+  - Primary buttons
+  - Highlights and emphasis
+  - Key metrics
+  - Active states
+  - CTAs
+*   **Secondary Accent (Blue)**: `#0099FF` or close variation — Supporting accent for:
+  - Secondary buttons
+  - Links
+  - Data visualization
+  - Hover states
+*   **Yellow Gradient**: `linear-gradient(135deg, #FCD303 0%, rgba(252, 211, 3, 0) 100%)`
+*   **Blue Gradient**: `linear-gradient(135deg, #0099FF 0%, rgba(0, 153, 255, 0) 100%)`
+
+**Neutral Colors**:
+- Border: `#2A2A2A` or `#333333` — Subtle card borders
+- Grid lines: `rgba(255, 255, 255, 0.05)` or `rgba(255, 255, 255, 0.03)` — Very subtle
+- Divider: `#2A2A2A` — Section dividers
+
+### Typography
+
+**Font Philosophy**: Bold, impactful sans-serif. Headlines use heavy weights for maximum impact. Technical, modern feel.
+
+*   **Primary Font**: System font stack or Inter/Roboto
+    ```css
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    ```
+*   **Headlines**: Weights 700-900 (Bold/Black) — Heavy weights for drama
+*   **Body**: Weight 400-500 (Regular/Medium)
+*   **Numbers/Metrics**: Weight 800-900 for oversized display
+
+**Type Scale & Hierarchy**:
+- **Hero Numbers/Metrics**: `text-6xl` to `text-9xl` (60px-128px) — Massive visual anchors
+- **Page Headlines**: `text-4xl` to `text-7xl` (36px-72px) — Bold section titles
+- **Card Titles**: `text-2xl` to `text-4xl` (24px-36px) — Confident card headers
+- **Body Text**: `text-base` to `text-lg` (16px-18px) — Readable content
+- **Small Text**: `text-sm` (14px) — Labels, metadata
+
+**Text Colors**:
+- Primary: `#FFFFFF` or `#FAFAFA` — High contrast
+- Secondary: `#A0A0A0` or `#B0B0B0` — Supporting text
+- Muted: `#6B6B6B` — Subtle information
+- Accent (links): `#0099FF` (blue)
+- Highlight: `#FCD303` (yellow) — For emphasis
+
+### Radius & Borders
+
+**Radius Philosophy**: Moderately rounded, modern but not playful.
+
+*   **Border Radius**: `rounded-xl` (12px) or `rounded-2xl` (16px) — Cards and containers
+*   **Button Radius**: `rounded-lg` (8px) to `rounded-xl` (12px)
+*   **Border Width**: `border` (1px) standard, `border-2` (2px) for emphasis
+*   **Border Colors**:
+  - Default: `border-[#2A2A2A]` or `border-[#333333]`
+  - Hover: `border-[#FCD303]/50` or `border-[#0099FF]/50`
+
+### Shadows & Effects
+
+**Shadow Philosophy**: Subtle depth that doesn't compete with bold content. Hover effects add drama.
+
+*   **Card Shadow (Default)**: `shadow-lg` or custom `shadow-[0_4px_20px_rgba(0,0,0,0.4)]`
+*   **Card Shadow (Hover)**: `shadow-xl` or `shadow-[0_8px_30px_rgba(252,211,3,0.2)]` — Yellow glow
+*   **Button Shadow**: `shadow-md` or `shadow-[0_2px_10px_rgba(252,211,3,0.3)]`
+*   **Glow Effects**:
+  - Yellow glow: `shadow-[0_0_20px_rgba(252,211,3,0.3)]`
+  - Blue glow: `shadow-[0_0_20px_rgba(0,153,255,0.3)]`
+
+### Background Patterns
+
+**Grid Pattern** (signature element):
+```css
+background-image:
+  linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size: 60px 60px;
+```
+
+**Gradient Overlays** (single-color):
+```css
+/* Yellow gradient */
+background: linear-gradient(135deg, #FCD303 0%, rgba(252,211,3,0) 100%);
+opacity: 0.08;
+
+/* Blue gradient */
+background: linear-gradient(135deg, #0099FF 0%, rgba(0,153,255,0) 100%);
+opacity: 0.08;
+```
+
+## 3. Component Stylings
+
+### Buttons
+
+**Primary Button** (Yellow):
+```tsx
+bg-[#FCD303]
+hover:bg-[#FCD303]/90
+text-black  // Yellow needs dark text
+font-bold
+rounded-xl
+px-6 py-3
+transition-all
+shadow-md
+
+hover:shadow-lg
+hover:shadow-[0_0_20px_rgba(252,211,3,0.4)]
+```
+
+**Secondary Button** (Blue):
+```tsx
+bg-[#0099FF]
+hover:bg-[#0099FF]/90
+text-white
+font-semibold
+rounded-xl
+px-6 py-3
+
+hover:shadow-lg
+hover:shadow-[0_0_20px_rgba(0,153,255,0.4)]
+transition-all
+```
+
+**Outline Button**:
+```tsx
+bg-transparent
+border-2 border-[#FCD303]
+text-[#FCD303]
+font-semibold
+rounded-xl
+px-6 py-3
+
+hover:bg-[#FCD303]
+hover:text-black
+transition-all
+```
+
+**Ghost Button**:
+```tsx
+bg-transparent
+text-[#FCD303]
+font-medium
+
+hover:bg-[#FCD303]/10
+transition-colors
+```
+
+### Cards / Containers
+
+**Standard Card**:
+```tsx
+bg-[#1A1A1A]
+border border-[#2A2A2A]
+rounded-2xl
+p-6
+shadow-lg
+
+hover:shadow-xl
+hover:border-[#FCD303]/30
+transition-all
+```
+
+**Grid Background Card**:
+```tsx
+bg-[#1A1A1A]
+border border-[#2A2A2A]
+rounded-2xl
+p-6
+relative overflow-hidden
+
+// Grid pattern overlay
+before:absolute before:inset-0
+before:bg-grid-pattern
+before:opacity-30
+before:pointer-events-none
+
+// Content on top
+relative z-10
+```
+
+**Number/Metric Card** (big impact):
+```tsx
+bg-[#1A1A1A]
+rounded-2xl
+p-6
+border border-[#2A2A2A]
+
+// Optional: yellow gradient background
+bg-gradient-to-br from-[#FCD303]/5 to-transparent
+
+// Number
+text-6xl to text-8xl
+font-black
+text-[#FCD303]  // Yellow for emphasis
+
+// Label
+text-sm text-[#A0A0A0] uppercase tracking-wider mt-2
+```
+
+**Featured Card**:
+```tsx
+bg-[#1A1A1A]
+border border-[#FCD303]/30
+rounded-2xl
+p-8
+shadow-xl
+
+// Yellow glow effect
+shadow-[0_0_30px_rgba(252,211,3,0.15)]
+```
+
+### Inputs
+
+**Tech-Style Input**:
+```tsx
+bg-[#1A1A1A]
+border border-[#2A2A2A]
+rounded-xl
+px-4 py-3
+text-white
+placeholder:text-[#6B6B6B]
+
+focus:border-[#FCD303]
+focus:ring-2 focus:ring-[#FCD303]/20
+outline-none
+transition-all
+```
+
+## 4. Grid & Layout Patterns
+
+### Bento Grid Layout
+
+**Basic Grid**:
+```tsx
+grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4
+```
+
+**Spanning**:
+```tsx
+col-span-1   // 1 column
+col-span-2   // 2 columns
+col-span-3   // 3 columns
+row-span-2   // 2 rows tall
+```
+
+**Example Layout**:
+```tsx
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+  {/* Hero - 3 columns */}
+  <div className="lg:col-span-3 bg-[#1A1A1A] rounded-2xl p-8 border border-[#2A2A2A]">
+    <h2 className="text-6xl font-black text-white">Headline</h2>
+    <p className="text-[#A0A0A0] mt-4 text-lg">Description</p>
+  </div>
+
+  {/* Metric - 1 column, yellow accent */}
+  <div className="bg-[#1A1A1A] rounded-2xl p-6 border border-[#FCD303]/30">
+    <div className="text-7xl font-black text-[#FCD303]">99%</div>
+    <div className="text-sm text-[#A0A0A0] mt-2 uppercase tracking-wider">Accuracy</div>
+  </div>
+
+  {/* Standard cards */}
+  <div className="bg-[#1A1A1A] rounded-2xl p-6 border border-[#2A2A2A]">Card 3</div>
+  <div className="bg-[#1A1A1A] rounded-2xl p-6 border border-[#2A2A2A]">Card 4</div>
+  <div className="bg-[#1A1A1A] rounded-2xl p-6 border border-[#2A2A2A]">Card 5</div>
+  <div className="bg-[#1A1A1A] rounded-2xl p-6 border border-[#2A2A2A]">Card 6</div>
+</div>
+```
+
+## 5. Animation & Motion
+
+**Philosophy**: Smooth scroll-triggered animations. Apple-inspired reveal effects.
+
+**Scroll Animations** (Framer Motion):
+```tsx
+// Fade up on scroll
+initial={{ opacity: 0, y: 40 }}
+whileInView={{ opacity: 1, y: 0 }}
+viewport={{ once: true, margin: "-100px" }}
+transition={{ duration: 0.6, ease: "easeOut" }}
+
+// Scale in with fade
+initial={{ opacity: 0, scale: 0.95 }}
+whileInView={{ opacity: 1, scale: 1 }}
+transition={{ duration: 0.5 }}
+
+// Stagger children for grid
+variants={{
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}}
+```
+
+**Hover Animations**:
+```tsx
+// Card lift with glow
+whileHover={{
+  y: -6,
+  transition: { duration: 0.2 }
+}}
+
+// Button interactions
+whileHover={{ scale: 1.02 }}
+whileTap={{ scale: 0.98 }}
+```
+
+**Timing**:
+- Scroll reveal: `duration: 0.5-0.7s`
+- Hover: `duration: 0.2s`
+- Ease: `easeOut` for natural feel
+
+## 6. Data Visualization
+
+**Chart Styling**:
+- Primary line: `#FCD303` (yellow) or `#0099FF` (blue)
+- Grid lines: `rgba(255,255,255,0.05)` — Very subtle
+- Text: `#A0A0A0` labels, `#FFFFFF` values
+- Tooltips: `bg-[#1A1A1A] border border-[#FCD303]/30 rounded-lg`
+- Highlight color: `#FCD303` for key data points
+
+**Icon Style**:
+- Simple line icons (outlined style)
+- Stroke width: 1.5-2px
+- Colors:
+  - Accent icons: `#FCD303` (yellow) or `#0099FF` (blue)
+  - Neutral icons: `#A0A0A0`
+- Sizes: `w-5 h-5` to `w-8 h-8`
+
+## 7. Layout Strategy
+
+**Container Width**: `max-w-7xl` (1280px) or `max-w-6xl` (1152px)
+
+**Spacing System**:
+- Section padding: `py-16` to `py-24` (64px-96px)
+- Grid gaps: `gap-4` to `gap-6` (16px-24px)
+- Card padding: `p-6` to `p-8` (24px-32px)
+- Text margins: `space-y-4` to `space-y-6`
+
+**Z-Index Layers**:
+1. Background grid: `z-0`
+2. Card backgrounds: `z-10`
+3. Card content: `z-20`
+4. Overlays/modals: `z-50`
+
+## 8. Responsive Strategy
+
+**Breakpoints**: Mobile-first with `sm:`, `md:`, `lg:`
+
+**Mobile** (< 640px):
+- Grids: Single column stack
+- Typography: Scale down (e.g., `text-5xl` instead of `text-7xl`)
+- Spacing: Reduce padding from `p-6` to `p-4`
+- Grid pattern: Keep but reduce opacity slightly
+
+**Tablet** (640px - 1024px):
+- Grids: 2 columns
+- Medium typography
+- Maintain card structure
+
+**Desktop** (> 1024px):
+- Full grid layouts (3-4 columns)
+- Maximum typography scale
+- All hover effects active
+- Grid background most visible
+
+**Key**: Grid backgrounds and yellow/blue accents must remain consistent across all screen sizes. Bold typography should still feel large on mobile (just scaled down appropriately).
+</design-system>
