@@ -577,6 +577,32 @@ body {
     color: var(--color-interactive);
 }
 
+/* Skill Description (fallback for skills without SKILL.md) */
+.skill-description {
+    padding: var(--spacing-lg);
+}
+
+.skill-description h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-fg);
+}
+
+.skill-description .lead {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-fg);
+    opacity: 0.9;
+    margin-bottom: var(--spacing-md);
+}
+
+.skill-description em {
+    color: var(--color-primary);
+    font-style: italic;
+}
+
 /* Loading & Error States */
 .loading,
 .error-message {

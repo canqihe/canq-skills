@@ -865,18 +865,30 @@ async function loadSkill(skillName) {
 
     } catch (error) {
         console.error('Error loading skill:', error);
-        content.innerHTML = `
-            <div class="error-message">
-                <h2>Unable to Load Skill</h2>
-                <p>Could not load documentation for <strong>${skillName}</strong>. This might be because:</p>
-                <ul>
-                    <li>The skill doesn't have a SKILL.md file</li>
-                    <li>The file path is incorrect</li>
-                    <li>Network error accessing GitHub</li>
-                </ul>
-                <p><a href="https://github.com/${REPO_OWNER}/${REPO_NAME}" target="_blank">View on GitHub</a></p>
-            </div>
-        `;
+
+        // Check if skill exists in SKILLS object
+        const skill = SKILLS[skillName];
+        if (skill && skill.description) {
+            // Show description as fallback
+            const marketing = renderMarketingSection(skillName);
+            const fallbackContent = `
+                <div class="skill-description">
+                    <h2>${skill.name}</h2>
+                    <p class="lead">${skill.description}</p>
+                    <p><em>Note: Full documentation (SKILL.md) is not available for this skill yet. You can still install and use it - see the installation instructions on the right.</em></p>
+                </div>
+            `;
+            content.innerHTML = marketing + fallbackContent;
+        } else {
+            // Show error message
+            content.innerHTML = `
+                <div class="error-message">
+                    <h2>Unable to Load Skill</h2>
+                    <p>Could not load documentation for <strong>${skillName}</strong>.</p>
+                    <p><a href="https://github.com/${REPO_OWNER}/${REPO_NAME}" target="_blank">View on GitHub</a></p>
+                </div>
+            `;
+        }
     }
 }
 
