@@ -1,0 +1,5 @@
+{
+  "name": "data-analyst",
+  "description": "AI data analyst assistant for querying CSV/Excel data files through natural language",
+  "version": "1.0.0"
+}

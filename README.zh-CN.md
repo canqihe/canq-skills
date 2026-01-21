@@ -12,6 +12,7 @@
 
 | 技能 | 说明 |
 |------|------|
+| [ai-teaching-team](./ai-teaching-team/) | 4个AI代理的教育系统，用于生成学习材料 |
 | [ai-ui-generator](./ai-ui-generator/) | 通用 AI 驱动的 UI 组件生成器 |
 | [algorithmic-art](./algorithmic-art/) | 使用 p5.js 创建算法艺术 |
 | [art-master](./art-master/) | 艺术风格提示词生成器 |
@@ -20,12 +21,15 @@
 | [design-master](./design-master/) | 平面设计提示词生成器 |
 | [doc-coauthoring](./doc-coauthoring/) | 协作文档编写指南 |
 | [docx](./docx/) | 全面的文档创建和编辑 |
+| [data-analyst](./data-analyst/) | AI 数据分析助手，用于查询 CSV/Excel 文件 |
 | [domain-classifier](./domain-classifier/) | AI 领域分类器 |
 | [ec-view](./ec-view/) | 电商 KV 视觉系统提示词生成器 |
 | [frontend-design](./frontend-design/) | 创建生产级前端界面 |
 | [infographic-creator](./infographic-creator/)) | 创建精美信息图 |
 | [intelligent-prompt-generator](./intelligent-prompt-generator/) | 智能提示词生成器 v2.0 |
 | [internal-comms](./internal-comms/) | 撰写内部沟通文档 |
+| [movie-production](./movie-production/) | AI 驱动的电影制作助手 |
+| [movie-production](./movie-production/) | AI 驱动的电影制作助手 |
 | [mcp-builder](./mcp-builder/) | MCP 服务器创建指南 |
 | [notebooklm](./notebooklm/) | 查询 Google NotebookLM 笔记本 |
 | [pdf](./pdf/) | 全面的 PDF 处理工具包 |

@@ -12,6 +12,7 @@
 
 | スキル | 説明 |
 |--------|------|
+| [ai-teaching-team](./ai-teaching-team/) | 4つのAIエージェントによる教育システム
 | [ai-ui-generator](./ai-ui-generator/) | 汎用AI駆動UIコンポーネントジェネレーター |
 | [algorithmic-art](./algorithmic-art/) | p5.jsでアルゴリズムアートを作成 |
 | [art-master](./art-master/) | アートスタイルプロンプトジェネレーター |
@@ -20,12 +21,14 @@
 | [design-master](./design-master/) | グラフィックデザインプロンプトジェネレーター |
 | [doc-coauthoring](./doc-coauthoring/) | ドキュメント共著ガイド |
 | [docx](./docx/) | 包括的なドキュメント作成と編集 |
+| [data-analyst](./data-analyst/) | CSV/Excelファイル用AIデータアナリスト
 | [domain-classifier](./domain-classifier/) | AIドメイン分類器 |
 | [ec-view](./ec-view/) | EC KVビジュアルシステムプロンプトジェネレーター |
 | [frontend-design](./frontend-design/) | 本番級フロントエンドインターフェースの作成 |
 | [infographic-creator](./infographic-creator/) | 美しいインフォグラフィックの作成 |
 | [intelligent-prompt-generator](./intelligent-prompt-generator/) | インテリジェントプロンプトジェネレーター v2.0 |
 | [internal-comms](./internal-comms/) | 内部コミュニケーションの作成 |
+| [movie-production](./movie-production/) | AI駆動の映画制作アシスタント
 | [mcp-builder](./mcp-builder/) | MCPサーバー作成ガイド |
 | [notebooklm](./notebooklm/) | Google NotebookLMノートブックのクエリ |
 | [pdf](./pdf/) | 包括的なPDF操作ツールキット |
