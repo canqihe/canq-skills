@@ -42,6 +42,7 @@ My collection of custom Claude Code skills for productivity and automation.
 | [skill-i18n](./skill-i18n/) | Translate skill documentation into multiple languages |
 | [skill-permissions](./skill-permissions/) | Analyze skill permissions and batch authorization |
 | [slack-gif-creator](./slack-gif-creator/) | Create animated GIFs for Slack |
+| [social-content](./social-content/) | Social media content creation and optimization |
 | [theme-factory](./theme-factory/) | Toolkit for styling artifacts with themes |
 | [ui-skills](./ui-skills/) | Opinionated constraints for building interfaces |
 | [ui-ux-pro-max](./ui-ux-pro-max/) | UI/UX design intelligence |

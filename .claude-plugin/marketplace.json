@@ -140,6 +140,11 @@
       "description": "Create animated GIFs optimized for Slack"
     },
     {
+      "name": "social-content",
+      "source": "./social-content",
+      "description": "When the user wants help creating, scheduling, or optimizing social media content"
+    },
+    {
       "name": "theme-factory",
       "source": "./theme-factory",
       "description": "Toolkit for styling artifacts with themes"

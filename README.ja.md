@@ -38,6 +38,7 @@
 | [prompt-xray](./prompt-xray/) | プロンプトから知識をリバースエンジニアリング |
 | [skill-creator](./skill-creator/) | 効果的なスキル作成ガイド |
 | [slack-gif-creator](./slack-gif-creator/) | Slack用アニメーションGIFの作成 |
+| [social-content](./social-content/) | ソーシャルメディアコンテンツの作成と最適化 |
 | [theme-factory](./theme-factory/) | テーマでアーティファクトをスタイリング |
 | [ui-skills](./ui-skills/) | インターフェース構築の制約 |
 | [ui-ux-pro-max](./ui-ux-pro-max/) | UI/UXデザインインテリジェンス |

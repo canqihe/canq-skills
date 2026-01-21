@@ -38,6 +38,7 @@
 | [prompt-xray](./prompt-xray/) | 从提示词中逆向工程知识 |
 | [skill-creator](./skill-creator/) | 创建有效技能的指南 |
 | [slack-gif-creator](./slack-gif-creator/) | 为 Slack 创建动画 GIF |
+| [social-content](./social-content/) | 社交媒体内容创建和优化 |
 | [theme-factory](./theme-factory/) | 使用主题样式化工具包 |
 | [ui-skills](./ui-skills/) | 构建界面的约束条件 |
 | [ui-ux-pro-max](./ui-ux-pro-max/) | UI/UX 设计智能 |
