@@ -12,7 +12,6 @@ My collection of custom Claude Code skills for productivity and automation.
 
 | Skill | Description |
 |-------|-------------|
-| [ai-teaching-team](./ai-teaching-team/) | Educational system with 4 AI agents for learning materials |
 | [ai-ui-generator](./ai-ui-generator/) | Universal AI-powered UI component generator |
 | [algorithmic-art](./algorithmic-art/) | Creating algorithmic art using p5.js |
 | [art-master](./art-master/) | Art style prompt generator |
@@ -28,7 +27,6 @@ My collection of custom Claude Code skills for productivity and automation.
 | [infographic-creator](./infographic-creator/) | Create beautiful infographics |
 | [intelligent-prompt-generator](./intelligent-prompt-generator/) | Intelligent prompt generator v2.0 |
 | [internal-comms](./internal-comms/) | Write internal communications |
-| [movie-production](./movie-production/) | AI-powered movie production assistant |
 | [mcp-builder](./mcp-builder/) | Guide for creating MCP servers |
 | [notebooklm](./notebooklm/) | Query Google NotebookLM notebooks |
 | [pdf](./pdf/) | Comprehensive PDF manipulation toolkit |

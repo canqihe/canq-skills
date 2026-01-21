@@ -12,7 +12,6 @@
 
 | スキル | 説明 |
 |--------|------|
-| [ai-teaching-team](./ai-teaching-team/) | 4つのAIエージェントによる教育システム
 | [ai-ui-generator](./ai-ui-generator/) | 汎用AI駆動UIコンポーネントジェネレーター |
 | [algorithmic-art](./algorithmic-art/) | p5.jsでアルゴリズムアートを作成 |
 | [art-master](./art-master/) | アートスタイルプロンプトジェネレーター |
@@ -28,7 +27,6 @@
 | [infographic-creator](./infographic-creator/) | 美しいインフォグラフィックの作成 |
 | [intelligent-prompt-generator](./intelligent-prompt-generator/) | インテリジェントプロンプトジェネレーター v2.0 |
 | [internal-comms](./internal-comms/) | 内部コミュニケーションの作成 |
-| [movie-production](./movie-production/) | AI駆動の映画制作アシスタント
 | [mcp-builder](./mcp-builder/) | MCPサーバー作成ガイド |
 | [notebooklm](./notebooklm/) | Google NotebookLMノートブックのクエリ |
 | [pdf](./pdf/) | 包括的なPDF操作ツールキット |

@@ -10,11 +10,6 @@
   },
   "plugins": [
     {
-      "name": "ai-teaching-team",
-      "source": "./ai-teaching-team",
-      "description": "Educational system with 4 specialized AI agents for learning materials"
-    },
-    {
       "name": "ai-ui-generator",
       "source": "./ai-ui-generator",
       "description": "Universal AI-powered UI component generator"
@@ -93,11 +88,6 @@
       "name": "mcp-builder",
       "source": "./mcp-builder",
       "description": "Guide for creating high-quality MCP servers"
-    },
-    {
-      "name": "movie-production",
-      "source": "./movie-production",
-      "description": "Interactive AI-powered movie production assistant"
     },
     {
       "name": "notebooklm",

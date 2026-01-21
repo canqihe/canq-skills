@@ -12,7 +12,6 @@
 
 | 技能 | 说明 |
 |------|------|
-| [ai-teaching-team](./ai-teaching-team/) | 4个AI代理的教育系统，用于生成学习材料 |
 | [ai-ui-generator](./ai-ui-generator/) | 通用 AI 驱动的 UI 组件生成器 |
 | [algorithmic-art](./algorithmic-art/) | 使用 p5.js 创建算法艺术 |
 | [art-master](./art-master/) | 艺术风格提示词生成器 |
@@ -28,8 +27,6 @@
 | [infographic-creator](./infographic-creator/)) | 创建精美信息图 |
 | [intelligent-prompt-generator](./intelligent-prompt-generator/) | 智能提示词生成器 v2.0 |
 | [internal-comms](./internal-comms/) | 撰写内部沟通文档 |
-| [movie-production](./movie-production/) | AI 驱动的电影制作助手 |
-| [movie-production](./movie-production/) | AI 驱动的电影制作助手 |
 | [mcp-builder](./mcp-builder/) | MCP 服务器创建指南 |
 | [notebooklm](./notebooklm/) | 查询 Google NotebookLM 笔记本 |
 | [pdf](./pdf/) | 全面的 PDF 处理工具包 |
