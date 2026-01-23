@@ -15,6 +15,7 @@
 | [ai-ui-generator](./ai-ui-generator/) | 汎用AI駆動UIコンポーネントジェネレーター |
 | [algorithmic-art](./algorithmic-art/) | p5.jsでアルゴリズムアートを作成 |
 | [art-master](./art-master/) | アートスタイルプロンプトジェネレーター |
+| [baoyu-xhs-images](./baoyu-xhs-images/) | 小紅書インフォグラフィックシリーズジェネレーター |
 | [brand-guidelines](./brand-guidelines/) | Anthropicのブランドカラーとタイポグラフィを適用 |
 | [canvas-design](./canvas-design/) | ビジュアルアートドキュメントの作成 |
 | [design-master](./design-master/) | グラフィックデザインプロンプトジェネレーター |
@@ -37,11 +38,12 @@
 | [prompt-generator](./prompt-generator/) | 要素データベースからプロンプトを生成 |
 | [prompt-master](./prompt-master/) | マスタープロンプトコントローラー |
 | [prompt-xray](./prompt-xray/) | プロンプトから知識をリバースエンジニアリング |
+| [remotion-best-practices](./remotion-best-practices/) | Remotion動画作成のベストプラクティス |
 | [skill-creator](./skill-creator/) | 効果的なスキル作成ガイド |
 | [slack-gif-creator](./slack-gif-creator/) | Slack用アニメーションGIFの作成 |
 | [social-content](./social-content/) | ソーシャルメディアコンテンツの作成と最適化 |
 | [theme-factory](./theme-factory/) | テーマでアーティファクトをスタイリング |
-| [ui-skills](./ui-skills/) | インターフェース構築の制約 |
+| [ui-check](./ui-check/) | インターフェース構築の制約 |
 | [ui-ux-pro-max](./ui-ux-pro-max/) | UI/UXデザインインテリジェンス |
 | [universal-learner](./universal-learner/) | プロンプトから学習 |
 | [video-master](./video-master/) | 動画生成プロンプトコントローラー |
@@ -49,6 +51,7 @@
 | [web_style](./web_style/) | ウェブサイトデザインスタイルジェネレーター |
 | [webapp-testing](./webapp-testing/) | ローカルWebアプリのテスト |
 | [xlsx](./xlsx/) | 包括的なスプレッドシートツールキット |
+| [youtube-clipper](./youtube-clipper/) | YouTube動画インテリジェント編集ツール |
 | [z-image](./z-image/) | ModelScope APIで画像生成 |
 
 ## ドキュメント

@@ -15,6 +15,7 @@
 | [ai-ui-generator](./ai-ui-generator/) | 通用 AI 驱动的 UI 组件生成器 |
 | [algorithmic-art](./algorithmic-art/) | 使用 p5.js 创建算法艺术 |
 | [art-master](./art-master/) | 艺术风格提示词生成器 |
+| [baoyu-xhs-images](./baoyu-xhs-images/) | 小红书信息图系列生成器 |
 | [brand-guidelines](./brand-guidelines/) | 应用 Anthropic 品牌颜色和排版 |
 | [canvas-design](./canvas-design/) | 创建视觉艺术文档 |
 | [design-master](./design-master/) | 平面设计提示词生成器 |
@@ -37,11 +38,12 @@
 | [prompt-generator](./prompt-generator/) | 从元素数据库生成提示词 |
 | [prompt-master](./prompt-master/) | 主提示词控制器 |
 | [prompt-xray](./prompt-xray/) | 从提示词中逆向工程知识 |
+| [remotion-best-practices](./remotion-best-practices/) | Remotion 视频创建最佳实践 |
 | [skill-creator](./skill-creator/) | 创建有效技能的指南 |
 | [slack-gif-creator](./slack-gif-creator/) | 为 Slack 创建动画 GIF |
 | [social-content](./social-content/) | 社交媒体内容创建和优化 |
 | [theme-factory](./theme-factory/) | 使用主题样式化工具包 |
-| [ui-skills](./ui-skills/) | 构建界面的约束条件 |
+| [ui-check](./ui-check/) | 构建界面的约束条件 |
 | [ui-ux-pro-max](./ui-ux-pro-max/) | UI/UX 设计智能 |
 | [universal-learner](./universal-learner/) | 从提示词中学习 |
 | [video-master](./video-master/) | 视频生成提示词控制器 |
@@ -49,6 +51,7 @@
 | [web_style](./web_style/) | 网站设计风格生成器 |
 | [webapp-testing](./webapp-testing/) | 测试本地 Web 应用 |
 | [xlsx](./xlsx/) | 全面的电子表格工具包 |
+| [youtube-clipper](./youtube-clipper/) | YouTube 视频智能剪辑工具 |
 | [z-image](./z-image/) | 使用 ModelScope API 生成图像 |
 
 ## 在线文档
