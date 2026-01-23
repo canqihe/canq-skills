@@ -15,6 +15,7 @@ My collection of custom Claude Code skills for productivity and automation.
 | [ai-ui-generator](./ai-ui-generator/) | Universal AI-powered UI component generator |
 | [algorithmic-art](./algorithmic-art/) | Creating algorithmic art using p5.js |
 | [art-master](./art-master/) | Art style prompt generator |
+| [baoyu-xhs-images](./baoyu-xhs-images/) | Xiaohongshu infographic series generator |
 | [brand-guidelines](./brand-guidelines/) | Apply Anthropic's brand colors and typography |
 | [canvas-design](./canvas-design/) | Create visual art in .png and .pdf documents |
 | [design-master](./design-master/) | Graphic design prompt generator |
@@ -38,14 +39,14 @@ My collection of custom Claude Code skills for productivity and automation.
 | [prompt-generator](./prompt-generator/) | Generate prompts from element database |
 | [prompt-master](./prompt-master/) | Master prompt controller |
 | [prompt-xray](./prompt-xray/) | Reverse engineer knowledge from prompts |
-| [skill-creator](./skill-creator/) | Guide for creating effective skills |
+| [remotion-best-practices](./remotion-best-practices/) | Best practices for Remotion video creation |
 | [share-skill](./share-skill/) | Automatically share skills and migrate to code repositories |
 | [skill-i18n](./skill-i18n/) | Translate skill documentation into multiple languages |
 | [skill-permissions](./skill-permissions/) | Analyze skill permissions and batch authorization |
 | [slack-gif-creator](./slack-gif-creator/) | Create animated GIFs for Slack |
 | [social-content](./social-content/) | Social media content creation and optimization |
 | [theme-factory](./theme-factory/) | Toolkit for styling artifacts with themes |
-| [ui-skills](./ui-skills/) | Opinionated constraints for building interfaces |
+| [ui-check](./ui-check/) | Opinionated constraints for building interfaces |
 | [ui-ux-pro-max](./ui-ux-pro-max/) | UI/UX design intelligence |
 | [universal-learner](./universal-learner/) | Universal learner from prompts |
 | [video-master](./video-master/) | Video generation prompt controller |
@@ -53,6 +54,7 @@ My collection of custom Claude Code skills for productivity and automation.
 | [web_style](./web_style/) | Website design style generator |
 | [webapp-testing](./webapp-testing/) | Test local web applications |
 | [xlsx](./xlsx/) | Comprehensive spreadsheet toolkit |
+| [youtube-clipper](./youtube-clipper/) | YouTube video intelligent editing tool |
 | [z-image](./z-image/) | Z-Image generation with ModelScope API |
 
 ## Documentation
