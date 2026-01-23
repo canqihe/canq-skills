@@ -1,9 +1,9 @@
 ---
-name: ui-skills
+name: ui-check
 description: Opinionated constraints for building better interfaces with agents.
 ---
 
-# UI Skills
+# UI Check
 
 When invoked, apply these opinionated constraints for building better interfaces.
 
