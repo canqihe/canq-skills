@@ -2,7 +2,7 @@
 const REPO_OWNER = 'canqihe';
 const REPO_NAME = 'canq-skills';
 const BRANCH = 'master';
-const CACHE_VERSION = '1737283200';
+const CACHE_VERSION = '1737686400';
 
 // Cache busting
 const isGitHubPages = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
@@ -39,6 +39,11 @@ const SKILLS = {
         description: 'Art style prompt generator',
         path: 'art-master'
     },
+    'baoyu-xhs-images': {
+        name: 'baoyu-xhs-images',
+        description: 'Xiaohongshu infographic series generator',
+        path: 'baoyu-xhs-images'
+    },
     'brand-guidelines': {
         name: 'brand-guidelines',
         description: 'Apply Anthropic\'s brand colors and typography',
@@ -63,6 +68,11 @@ const SKILLS = {
         name: 'docx',
         description: 'Comprehensive document creation and editing',
         path: 'docx'
+    },
+    'data-analyst': {
+        name: 'data-analyst',
+        description: 'AI data analyst for CSV/Excel files',
+        path: 'data-analyst'
     },
     'domain-classifier': {
         name: 'domain-classifier',
@@ -149,6 +159,11 @@ const SKILLS = {
         description: 'Reverse engineer knowledge from prompts',
         path: 'prompt-xray'
     },
+    'remotion-best-practices': {
+        name: 'remotion-best-practices',
+        description: 'Best practices for Remotion video creation',
+        path: 'remotion-best-practices'
+    },
     'share-skill': {
         name: 'share-skill',
         description: 'Automatically share skills and migrate to code repositories',
@@ -179,10 +194,10 @@ const SKILLS = {
         description: 'Toolkit for styling artifacts with themes',
         path: 'theme-factory'
     },
-    'ui-skills': {
-        name: 'ui-skills',
+    'ui-check': {
+        name: 'ui-check',
         description: 'Opinionated constraints for building interfaces',
-        path: 'ui-skills'
+        path: 'ui-check'
     },
     'ui-ux-pro-max': {
         name: 'ui-ux-pro-max',
@@ -218,6 +233,11 @@ const SKILLS = {
         name: 'xlsx',
         description: 'Comprehensive spreadsheet toolkit',
         path: 'xlsx'
+    },
+    'youtube-clipper': {
+        name: 'youtube-clipper',
+        description: 'YouTube video intelligent editing tool',
+        path: 'youtube-clipper'
     },
     'z-image': {
         name: 'z-image',
@@ -641,7 +661,7 @@ const SKILL_MARKETING = {
             ]
         }
     },
-    'ui-skills': {
+    'ui-check': {
         en: {
             headline: 'Opinionated Constraints for Better UI',
             why: 'Design principles and constraints for building interfaces. Avoid common pitfalls and create better user experiences with proven patterns.',
