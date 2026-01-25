@@ -166,7 +166,8 @@ def download_and_save_image(url, filename=None):
         response.raise_for_status()
 
         image = Image.open(BytesIO(response.content))
-        image.save(output_path)
+        # Save with maximum JPEG quality (95) to preserve details
+        image.save(output_path, quality=95, optimize=True, subsampling=0)
 
         print(f"✅ Image saved: {output_path}")
         return str(output_path)
