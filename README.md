@@ -25,6 +25,7 @@ My collection of custom Claude Code skills for productivity and automation.
 | [domain-classifier](./domain-classifier/) | AI domain classifier |
 | [ec-view](./ec-view/) | E-commerce KV visual system prompt generator |
 | [frontend-design](./frontend-design/) | Create production-grade frontend interfaces |
+| [gemini-watermark-remover](./gemini-watermark-remover/) | Remove Gemini AI watermark from images |
 | [infographic-creator](./infographic-creator/) | Create beautiful infographics |
 | [intelligent-prompt-generator](./intelligent-prompt-generator/) | Intelligent prompt generator v2.0 |
 | [internal-comms](./internal-comms/) | Write internal communications |
