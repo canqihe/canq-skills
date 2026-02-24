@@ -15,7 +15,6 @@ watermark:
   enabled: false
   content: ""
   position: bottom-right  # bottom-right|bottom-left|bottom-center|top-right
-  opacity: 0.5            # 0.1-1.0 (lower default for comics)
 
 preferred_art: null       # ligne-claire|manga|realistic|ink-brush|chalk
 preferred_tone: null      # neutral|warm|dramatic|romantic|energetic|vintage|action
@@ -42,7 +41,6 @@ character_presets:
 | `watermark.enabled` | bool | false | Enable watermark |
 | `watermark.content` | string | "" | Watermark text (@username or custom) |
 | `watermark.position` | enum | bottom-right | Position on image |
-| `watermark.opacity` | float | 0.5 | Transparency (0.1-1.0, lower for comics) |
 | `preferred_art` | string | null | Art style (ligne-claire, manga, realistic, ink-brush, chalk) |
 | `preferred_tone` | string | null | Tone (neutral, warm, dramatic, romantic, energetic, vintage, action) |
 | `preferred_layout` | string | null | Layout preference or null |
@@ -113,7 +111,6 @@ watermark:
   enabled: true
   content: "@comicstudio"
   position: bottom-right
-  opacity: 0.4
 
 preferred_art: manga
 preferred_tone: neutral
