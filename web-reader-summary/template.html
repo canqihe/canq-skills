@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} - 网页摘要</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 30px;
+        }
+
+        .summary-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .key-points {
+            list-style: none;
+        }
+
+        .key-points li {
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+            transition: transform 0.2s;
+        }
+
+        .key-points li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .key-points strong {
+            color: #764ba2;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .content-text {
+            font-size: 1.05em;
+            line-height: 2;
+            color: #444;
+        }
+
+        .content-text p {
+            margin-bottom: 15px;
+        }
+
+        .opinion {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .opinion h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+            border-bottom: 1px dashed #667eea;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            color: #764ba2;
+            border-bottom-style: solid;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .success {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header, .content {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .meta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{TITLE}}</h1>
+            <div class="meta">
+                <div class="meta-item">📅 {{DATE}}</div>
+                <div class="meta-item">🔗 <a href="{{URL}}" target="_blank" style="color: white; border-bottom-color: white;">查看原文</a></div>
+                {{#if AUTHOR}}<div class="meta-item">✍️ {{AUTHOR}}</div>{{/if}}
+                {{#if SOURCE}}<div class="meta-item">🌐 {{SOURCE}}</div>{{/if}}
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- 摘要部分 -->
+            <div class="summary-box">
+                <h3>📝 内容摘要</h3>
+                {{SUMMARY}}
+            </div>
+
+            <!-- 核心观点 -->
+            {{#if KEY_POINTS}}
+            <div class="section">
+                <h2 class="section-title">🎯 核心观点</h2>
+                <ul class="key-points">
+                    {{#each KEY_POINTS}}
+                    <li><strong>{{this.title}}</strong>{{this.content}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/if}}
+
+            <!-- 详细内容 -->
+            {{#if DETAILS}}
+            <div class="section">
+                <h2 class="section-title">📖 详细内容</h2>
+                <div class="content-text">
+                    {{DETAILS}}
+                </div>
+            </div>
+            {{/if}}
+
+            <!-- 数据表格 -->
+            {{#if TABLES}}
+            {{#each TABLES}}
+            <div class="section">
+                <h3>{{this.title}}</h3>
+                {{{this.html}}}
+            </div>
+            {{/each}}
+            {{/if}}
+
+            <!-- 我的看法 -->
+            {{#if OPINION}}
+            <div class="section">
+                <h2 class="section-title">💭 看法与分析</h2>
+                <div class="opinion">
+                    {{OPINION}}
+                </div>
+            </div>
+            {{/if}}
+        </div>
+
+        <div class="footer">
+            <p>由 Claude Code 生成 | 生成时间：{{GENERATED_TIME}}</p>
+            {{#if TAGS}}
+            <div style="margin-top: 10px;">
+                {{#each TAGS}}<span class="tag">{{this}}</span>{{/each}}
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</body>
+</html>
