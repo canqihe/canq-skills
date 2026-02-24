@@ -163,158 +163,70 @@ interface RelationDatum extends BaseDatum {
   - For larger illustration needs → use `illus`
   - Not all templates support both icon and illus - refer to template examples
 
-### Available Templates (234 Total)
+### Available Templates
 
-**Chart Templates (13 templates)**
-- chart-bar-plain-text
-- chart-column-simple
-- chart-line-plain-text
-- chart-pie-plain-text
-- chart-pie-compact-card
-- chart-pie-pill-badge
-- chart-pie-donut-plain-text
-- chart-pie-donut-compact-card
-- chart-pie-donut-pill-badge
-- chart-wordcloud
-- chart-wordcloud-rotate
-
-**Compare Templates (23 templates)**
-- compare-binary-horizontal-simple-fold
-- compare-binary-horizontal-underline-text-fold
-- compare-binary-horizontal-badge-card-fold
-- compare-binary-horizontal-compact-card-fold
-- compare-binary-horizontal-simple-arrow
-- compare-binary-horizontal-underline-text-arrow
-- compare-binary-horizontal-badge-card-arrow
-- compare-binary-horizontal-compact-card-arrow
-- compare-binary-horizontal-simple-vs
-- compare-binary-horizontal-underline-text-vs
-- compare-binary-horizontal-badge-card-vs
-- compare-binary-horizontal-compact-card-vs
-- compare-hierarchy-left-right-circle-node-pill-badge
-- compare-hierarchy-left-right-circle-node-plain-text
-- compare-hierarchy-row-letter-card-compact-card
-- compare-hierarchy-row-letter-card-rounded-rect-node
-- compare-quadrant-quarter-simple-card
-- compare-quadrant-quarter-circular
-- compare-quadrant-simple-illus
-- compare-swot
-- quadrant-quarter-simple-card (deprecated)
-- quadrant-quarter-circular (deprecated)
-- quadrant-simple-illus (deprecated)
-
-**Hierarchy Templates (112 templates)**
-- hierarchy-structure
-- hierarchy-structure-mirror
-- hierarchy-mindmap-branch-gradient-capsule-item
-- hierarchy-mindmap-branch-gradient-circle-progress
-- hierarchy-mindmap-branch-gradient-compact-card
-- hierarchy-mindmap-branch-gradient-lined-palette
-- hierarchy-mindmap-branch-gradient-rounded-rect
-- hierarchy-mindmap-level-gradient-capsule-item
-- hierarchy-mindmap-level-gradient-circle-progress
-- hierarchy-mindmap-level-gradient-compact-card
-- hierarchy-mindmap-level-gradient-lined-palette
-- hierarchy-mindmap-level-gradient-rounded-rect
-- hierarchy-tree-tech-style-* (100 variants: 5 styles × 4 orientations × 5 items)
-  - Styles: tech-style, dashed-line, distributed-origin, curved-line, dashed-arrow
-  - Orientations: '' (top-down), bt (bottom-top), lr (left-right), rl (right-left)
-  - Items: capsule-item, rounded-rect-node, compact-card, badge-card, ribbon-card
-  - Examples: hierarchy-tree-tech-style-badge-card, hierarchy-tree-lr-curved-line-capsule-item
-
-**List Templates (28 templates)**
-- list-column-done-list
-- list-column-simple-vertical-arrow
-- list-column-vertical-icon-arrow
-- list-grid-badge-card
-- list-grid-candy-card-lite
-- list-grid-circular-progress
-- list-grid-compact-card
-- list-grid-done-list
-- list-grid-horizontal-icon-arrow
-- list-grid-progress-card
-- list-grid-ribbon-card
-- list-grid-simple
-- list-pyramid-badge-card
-- list-pyramid-compact-card
-- list-pyramid-rounded-rect-node
-- list-row-circular-progress
-- list-row-horizontal-icon-arrow
-- list-row-horizontal-icon-line
-- list-row-simple-horizontal-arrow
-- list-row-simple-illus
-- list-sector-simple
-- list-sector-plain-text
-- list-sector-half-plain-text
-- list-waterfall-badge-card
-- list-waterfall-compact-card
-- list-zigzag-down-compact-card
-- list-zigzag-down-simple
-- list-zigzag-up-compact-card
-- list-zigzag-up-simple
-
-**Relation Templates (12 templates)**
-- relation-circle-circular-progress
-- relation-circle-icon-badge
-- relation-network-icon-badge
-- relation-network-simple-circle-node
-- relation-dagre-flow-tb-simple-circle-node
-- relation-dagre-flow-tb-animated-simple-circle-node
-- relation-dagre-flow-tb-badge-card
-- relation-dagre-flow-tb-animated-badge-card
-- relation-dagre-flow-lr-simple-circle-node
-- relation-dagre-flow-lr-animated-simple-circle-node
-- relation-dagre-flow-lr-badge-card
-- relation-dagre-flow-lr-animated-badge-card
-
-**Sequence Templates (46 templates)**
 - sequence-zigzag-steps-underline-text
 - sequence-horizontal-zigzag-underline-text
 - sequence-horizontal-zigzag-simple-illus
-- sequence-horizontal-zigzag-horizontal-icon-line
-- sequence-horizontal-zigzag-plain-text
-- sequence-horizontal-zigzag-simple
-- sequence-horizontal-zigzag-simple-horizontal-arrow
 - sequence-circular-simple
-- sequence-circular-underline-text
-- sequence-circle-arrows-indexed-card
 - sequence-filter-mesh-simple
-- sequence-filter-mesh-underline-text
 - sequence-mountain-underline-text
 - sequence-cylinders-3d-simple
 - sequence-color-snake-steps-horizontal-icon-line
-- sequence-color-snake-steps-simple-illus
 - sequence-pyramid-simple
 - sequence-funnel-simple
 - sequence-roadmap-vertical-simple
 - sequence-roadmap-vertical-plain-text
-- sequence-roadmap-vertical-badge-card
-- sequence-roadmap-vertical-pill-badge
-- sequence-roadmap-vertical-quarter-circular
-- sequence-roadmap-vertical-quarter-simple-card
-- sequence-roadmap-vertical-underline-text
 - sequence-zigzag-pucks-3d-simple
-- sequence-zigzag-pucks-3d-underline-text
-- sequence-zigzag-pucks-3d-indexed-card
 - sequence-ascending-steps
-- sequence-ascending-stairs-3d-simple
 - sequence-ascending-stairs-3d-underline-text
 - sequence-snake-steps-compact-card
-- sequence-snake-steps-pill-badge
-- sequence-snake-steps-simple
-- sequence-snake-steps-simple-illus
 - sequence-snake-steps-underline-text
+- sequence-snake-steps-simple
 - sequence-stairs-front-compact-card
 - sequence-stairs-front-pill-badge
-- sequence-stairs-front-simple
-- sequence-steps-badge-card
-- sequence-steps-simple
-- sequence-steps-simple-illus
-- sequence-timeline-done-list
-- sequence-timeline-plain-text
-- sequence-timeline-rounded-rect-node
 - sequence-timeline-simple
+- sequence-timeline-rounded-rect-node
 - sequence-timeline-simple-illus
+- compare-binary-horizontal-simple-fold
+- compare-hierarchy-left-right-circle-node-pill-badge
+- compare-swot
+- quadrant-quarter-simple-card
+- quadrant-quarter-circular
+- quadrant-simple-illus
+- relation-circle-icon-badge
+- relation-circle-circular-progress
+- compare-binary-horizontal-badge-card-arrow
+- compare-binary-horizontal-underline-text-vs
+- hierarchy-tree-tech-style-capsule-item
+- hierarchy-tree-curved-line-rounded-rect-node
+- hierarchy-tree-tech-style-badge-card
+- hierarchy-structure
+- chart-column-simple
+- chart-bar-plain-text
+- chart-line-plain-text
+- chart-pie-plain-text
+- chart-pie-compact-card
+- chart-pie-donut-plain-text
+- chart-pie-donut-pill-badge
+- chart-wordcloud
+- list-grid-badge-card
+- list-grid-candy-card-lite
+- list-grid-ribbon-card
+- list-row-horizontal-icon-arrow
+- list-row-simple-illus
+- list-sector-plain-text
+- list-column-done-list
+- list-column-vertical-icon-arrow
+- list-column-simple-vertical-arrow
+- list-zigzag-down-compact-card
+- list-zigzag-down-simple
+- list-zigzag-up-compact-card
+- list-zigzag-up-simple
+- relation-dagre-flow-tb-simple-circle-node
+- relation-dagre-flow-tb-animated-simple-circle-node
+- relation-dagre-flow-tb-badge-card
+- relation-dagre-flow-tb-animated-badge-card
 
 **Template Selection Guidelines:**
 - For strict sequential order: processes/steps/development trends → `sequence-*` series
@@ -325,17 +237,15 @@ interface RelationDatum extends BaseDatum {
   - Circular progress → `sequence-circular-simple`
   - Color snake steps → `sequence-color-snake-steps-*`
   - Pyramid diagram → `sequence-pyramid-simple`
-  - Funnel diagram → `sequence-funnel-simple`
 - For listing viewpoints → `list-row-*` series or `list-column-*` series
-- For grid layout (multiple cards) → `list-grid-*` series
 - For comparative analysis (comparing pros and cons of two parties) → `compare-binary-*` series
 - For SWOT analysis → `compare-swot`
-- For quadrant analysis → `compare-quadrant-*` (or `quadrant-*` deprecated)
-- For hierarchical structure (tree diagram) → `hierarchy-tree-*` (100 variants with different styles/orientations)
-- For mind map → `hierarchy-mindmap-*`
-- For data charts → `chart-*` series (pie, bar, column, line, word cloud)
-- For relationship/flow graph → `relation-dagre-flow-*` or `relation-network-*`
-- For circular relationship → `relation-circle-*`
+- For hierarchical structure (tree diagram) → `hierarchy-tree-*`
+- For data charts → `chart-*` series
+- For quadrant analysis → `quadrant-*` series
+- For grid lists (bullet points) → `list-grid-*` series
+- For relationship display → `relation-circle-*`
+- For word cloud → `chart-wordcloud`
 
 ### Example
 
