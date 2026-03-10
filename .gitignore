@@ -17,3 +17,22 @@ temp/
 
 # Node
 node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+.pytest_cache/
+
+# Data files
+data/
+*.csv
+*.xlsx
+*.json.bak

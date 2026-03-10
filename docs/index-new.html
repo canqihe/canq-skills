@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canqihe's Skills - Claude Code Custom Skills Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #13131a;
+            --bg-tertiary: #1a1a24;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6b6b7a;
+            --accent-purple: #8b5cf6;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-pink: #ec4899;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glass-bg: rgba(19, 19, 26, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            animation: bgMove 20s ease-in-out infinite;
+        }
+
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.625rem 1.25rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            background: var(--glass-bg);
+            color: var(--text-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--accent-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border-color: transparent;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0 6rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            margin-bottom: 3rem;
+        }
+
+        .filter-container {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.625rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            background: var(--glass-bg);
+            color: var(--text-secondary);
+        }
+
+        .filter-btn:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            border-color: transparent;
+            color: white;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            padding-left: 3rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        /* Skills Grid - Bento Layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            animation: fadeIn 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .skill-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 1.75rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue), var(--accent-cyan));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                        0 0 0 1px rgba(139, 92, 246, 0.1);
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .skill-card-header h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .skill-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.35rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: var(--bg-tertiary);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+
+        .tag.featured {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.15));
+            color: var(--accent-purple);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .modal-close {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--accent-purple);
+            border-color: var(--accent-purple);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-body h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-body p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .install-code {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+
+        .install-code code {
+            color: var(--accent-cyan);
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-purple);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 7rem 1rem 2rem;
+            }
+
+            .modal-content {
+                border-radius: 16px;
+                max-height: 90vh;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-purple);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">✨</div>
+                <span>Canqihe's Skills</span>
+            </div>
+            <div class="header-actions">
+                <a href="https://github.com/canqihe/canq-skills" class="btn" target="_blank">
+                    <span>⭐</span>
+                    <span>GitHub</span>
+                </a>
+                <a href="#install" class="btn btn-primary">
+                    <span>🚀</span>
+                    <span>Install</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Claude Code Skills Collection</h1>
+            <p>44+ production-ready custom skills for supercharging your Claude Code experience. AI-powered tools for development, design, content creation, and more.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">44+</div>
+                    <div class="stat-label">Skills</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">∞</div>
+                    <div class="stat-label">Possibilities</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="filter-container" id="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="prompt">Prompt Generation</button>
+                <button class="filter-btn" data-filter="ui">UI/Design</button>
+                <button class="filter-btn" data-filter="media">Media/Video</button>
+                <button class="filter-btn" data-filter="document">Documents</button>
+                <button class="filter-btn" data-filter="developer">Developer Tools</button>
+                <button class="filter-btn" data-filter="utility">Utilities</button>
+            </div>
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="Search skills..." id="searchInput">
+            </div>
+        </section>
+
+        <!-- Skills Grid -->
+        <section class="skills-grid" id="skillsGrid">
+            <!-- Skills will be dynamically populated -->
+        </section>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <div class="empty-state-icon">🔍</div>
+            <h3>No skills found</h3>
+            <p>Try adjusting your search or filter criteria</p>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal" id="skillModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Skill Name</h2>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Made with ♥ by <a href="https://github.com/canqihe" target="_blank" style="color: var(--accent-purple);">Canqihe</a></p>
+            <div class="footer-links">
+                <a href="https://github.com/canqihe/canq-skills" target="_blank">GitHub</a>
+                <a href="https://github.com/canqihe/canq-skills/blob/master/README.md" target="_blank">Documentation</a>
+                <a href="https://github.com/canqihe/canq-skills/issues" target="_blank">Issues</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Skills Data
+        const skills = [
+            { name: 'ai-ui-generator', category: 'ui', icon: '🎨', description: 'Universal AI-powered UI component generator', tags: ['featured', 'ui'] },
+            { name: 'algorithmic-art', category: 'media', icon: '🎨', description: 'Creating algorithmic art using p5.js', tags: ['art', 'generative'] },
+            { name: 'art-master', category: 'prompt', icon: '🖼️', description: 'Art style prompt generator', tags: ['art', 'prompt'] },
+            { name: 'baoyu-xhs-images', category: 'media', icon: '📱', description: 'Xiaohongshu infographic series generator', tags: ['featured', 'social'] },
+            { name: 'brand-guidelines', category: 'design', icon: '✏️', description: 'Apply Anthropic brand colors and typography', tags: ['brand', 'design'] },
+            { name: 'canvas-design', category: 'design', icon: '🖼️', description: 'Create visual art in PNG and PDF documents', tags: ['art', 'design'] },
+            { name: 'data-analyst', category: 'developer', icon: '📊', description: 'AI data analyst for CSV/Excel files', tags: ['data', 'analytics'] },
+            { name: 'design-master', category: 'prompt', icon: '🎨', description: 'Graphic design prompt generator', tags: ['design', 'prompt'] },
+            { name: 'doc-coauthoring', category: 'document', icon: '📝', description: 'Guide for co-authoring documentation', tags: ['docs', 'collaboration'] },
+            { name: 'docx', category: 'document', icon: '📄', description: 'Comprehensive document creation and editing', tags: ['word', 'office'] },
+            { name: 'domain-classifier', category: 'utility', icon: '🎯', description: 'AI domain classifier', tags: ['ai', 'classification'] },
+            { name: 'ec-view', category: 'prompt', icon: '🛒', description: 'E-commerce KV visual system generator', tags: ['ecommerce', 'prompt'] },
+            { name: 'frontend-design', category: 'ui', icon: '💻', description: 'Create production-grade frontend interfaces', tags: ['featured', 'web', 'react'] },
+            { name: 'infographic-creator', category: 'design', icon: '📊', description: 'Create beautiful infographics', tags: ['data', 'visualization'] },
+            { name: 'intelligent-prompt-generator', category: 'prompt', icon: '🧠', description: 'Intelligent prompt generator v2.0', tags: ['featured', 'ai', 'prompt'] },
+            { name: 'internal-comms', category: 'document', icon: '💼', description: 'Write internal communications', tags: ['business', 'writing'] },
+            { name: 'mcp-builder', category: 'developer', icon: '🔧', description: 'Guide for creating MCP servers', tags: ['api', 'tools'] },
+            { name: 'notebooklm', category: 'utility', icon: '📓', description: 'Query Google NotebookLM notebooks', tags: ['research', 'ai'] },
+            { name: 'pdf', category: 'document', icon: '📕', description: 'Comprehensive PDF manipulation toolkit', tags: ['pdf', 'documents'] },
+            { name: 'port-allocator', category: 'developer', icon: '🔌', description: 'Automatically allocate server ports', tags: ['devtools', 'utility'] },
+            { name: 'pptx', category: 'document', icon: '📊', description: 'Presentation creation and editing', tags: ['powerpoint', 'office'] },
+            { name: 'product-master', category: 'prompt', icon: '📦', description: 'Product photography prompt generator', tags: ['product', 'prompt'] },
+            { name: 'prompt-analyzer', category: 'prompt', icon: '🔬', description: 'Analyze and compare prompts', tags: ['analysis', 'prompt'] },
+            { name: 'prompt-extractor', category: 'prompt', icon: '⚗️', description: 'Extract modular structures from prompts', tags: ['analysis', 'prompt'] },
+            { name: 'prompt-generator', category: 'prompt', icon: '🎲', description: 'Generate prompts from element database', tags: ['prompt', 'database'] },
+            { name: 'prompt-master', category: 'prompt', icon: '🎯', description: 'Master prompt controller', tags: ['featured', 'prompt', 'controller'] },
+            { name: 'prompt-xray', category: 'prompt', icon: '🔍', description: 'Reverse engineer knowledge from prompts', tags: ['analysis', 'prompt'] },
+            { name: 'remotion-best-practices', category: 'media', icon: '🎬', description: 'Best practices for Remotion video creation', tags: ['video', 'react'] },
+            { name: 'share-skill', category: 'developer', icon: '📤', description: 'Automatically share skills and migrate to repositories', tags: ['tools', 'git'] },
+            { name: 'skill-creator', category: 'developer', icon: '⚙️', description: 'Guide for creating effective skills', tags: ['tutorial', 'skills'] },
+            { name: 'skill-i18n', category: 'developer', icon: '🌍', description: 'Translate skill documentation into multiple languages', tags: ['i18n', 'translation'] },
+            { name: 'skill-permissions', category: 'developer', icon: '🔐', description: 'Analyze skill permissions and batch authorization', tags: ['security', 'tools'] },
+            { name: 'slack-gif-creator', category: 'media', icon: '🎞️', description: 'Create animated GIFs for Slack', tags: ['gif', 'slack'] },
+            { name: 'social-content', category: 'document', icon: '📱', description: 'Social media content creation and optimization', tags: ['social', 'marketing'] },
+            { name: 'theme-factory', category: 'design', icon: '🎨', description: 'Toolkit for styling artifacts with themes', tags: ['themes', 'design'] },
+            { name: 'ui-check', category: 'ui', icon: '✅', description: 'Opinionated constraints for building interfaces', tags: ['ui', 'linting'] },
+            { name: 'ui-ux-pro-max', category: 'ui', icon: '🎨', description: 'UI/UX design intelligence', tags: ['featured', 'ui', 'ux'] },
+            { name: 'universal-learner', category: 'prompt', icon: '🧠', description: 'Universal learner from prompts', tags: ['ai', 'learning'] },
+            { name: 'video-master', category: 'media', icon: '🎥', description: 'Video generation prompt controller', tags: ['video', 'prompt'] },
+            { name: 'web-artifacts-builder', category: 'ui', icon: '🌐', description: 'Build elaborate HTML artifacts', tags: ['web', 'react'] },
+            { name: 'web_style', category: 'ui', icon: '💅', description: 'Website design style generator', tags: ['web', 'design'] },
+            { name: 'webapp-testing', category: 'developer', icon: '🧪', description: 'Test local web applications with Playwright', tags: ['testing', 'playwright'] },
+            { name: 'xlsx', category: 'document', icon: '📊', description: 'Comprehensive spreadsheet toolkit', tags: ['excel', 'spreadsheet'] },
+            { name: 'youtube-clipper', category: 'media', icon: '🎬', description: 'YouTube video intelligent editing tool', tags: ['featured', 'video', 'youtube'] },
+            { name: 'z-image', category: 'media', icon: '🖼️', description: 'Z-Image generation with ModelScope API', tags: ['image', 'api'] }
+        ];
+
+        // Render Skills
+        function renderSkills(filteredSkills) {
+            const grid = document.getElementById('skillsGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            if (filteredSkills.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            emptyState.style.display = 'none';
+
+            grid.innerHTML = filteredSkills.map(skill => `
+                <div class="skill-card" onclick="openModal('${skill.name}')" style="animation-delay: ${Math.random() * 0.3}s">
+                    <div class="skill-card-header">
+                        <div>
+                            <h3>${skill.icon} ${skill.name}</h3>
+                        </div>
+                        <div class="skill-icon">${skill.icon}</div>
+                    </div>
+                    <p class="skill-description">${skill.description}</p>
+                    <div class="skill-tags">
+                        ${skill.tags.map(tag => `<span class="tag ${skill.tags.includes('featured') ? 'featured' : ''}">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        let currentFilter = 'all';
+        let searchQuery = '';
+
+        function filterSkills() {
+            let filtered = skills;
+
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(skill => skill.category === currentFilter);
+            }
+
+            if (searchQuery) {
+                filtered = filtered.filter(skill =>
+                    skill.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    skill.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    skill.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+                );
+            }
+
+            renderSkills(filtered);
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                filterSkills();
+            });
+        });
+
+        // Search
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            filterSkills();
+        });
+
+        // Modal
+        function openModal(skillName) {
+            const skill = skills.find(s => s.name === skillName);
+            if (!skill) return;
+
+            document.getElementById('modalTitle').textContent = `${skill.icon} ${skill.name}`;
+            document.getElementById('modalBody').innerHTML = `
+                <p><strong>${skill.description}</strong></p>
+                <div class="skill-tags" style="margin-bottom: 1.5rem;">
+                    ${skill.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+                <p>This skill is part of the Canqihe's Skills collection. Visit the GitHub repository for full documentation and installation instructions.</p>
+                <div class="install-code">
+                    <code>/plugin marketplace add canqihe/canq-skills</code><br><br>
+                    <code>/plugin install ${skill.name}@canqihe-canq-skills</code>
+                </div>
+                <p><strong>Category:</strong> ${skill.category.charAt(0).toUpperCase() + skill.category.slice(1)}</p>
+            `;
+            document.getElementById('skillModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('skillModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on outside click
+        document.getElementById('skillModal').addEventListener('click', (e) => {
+            if (e.target.id === 'skillModal') {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Initial render
+        renderSkills(skills);
+    </script>
+</body>
+</html>
