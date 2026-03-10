@@ -51,7 +51,6 @@
 | [manimgl-best-practices](./manimgl-best-practices/) | ManimGL 最佳实践 |
 | [mcp-builder](./mcp-builder/) | MCP 服务器创建指南 |
 | [morning-report](./morning-report/) | 生成每日早报 |
-| [notebook](./notebook/) | NotebookLM 多源内容处理器 |
 | [notebooklm](./notebooklm/) | 查询 Google NotebookLM 笔记本 |
 | [podcast-article-generator](./podcast-article-generator/) | 播客文章生成器 |
 | [pdf](./pdf/) | 全面的 PDF 处理工具包 |

@@ -51,7 +51,6 @@ My collection of custom Claude Code skills for productivity and automation.
 | [manimgl-best-practices](./manimgl-best-practices/) | Best practices for ManimGL |
 | [mcp-builder](./mcp-builder/) | Guide for creating MCP servers |
 | [morning-report](./morning-report/) | Generate daily morning reports |
-| [notebook](./notebook/) | Multi-source content processor for NotebookLM |
 | [notebooklm](./notebooklm/) | Query Google NotebookLM notebooks |
 | [podcast-article-generator](./podcast-article-generator/) | Podcast article generator |
 | [pdf](./pdf/) | Comprehensive PDF manipulation toolkit |
