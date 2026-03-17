@@ -53,6 +53,7 @@ My collection of custom Claude Code skills for productivity and automation.
 | [morning-report](./morning-report/) | Generate daily morning reports |
 | [notebooklm](./notebooklm/) | Query Google NotebookLM notebooks |
 | [podcast-article-generator](./podcast-article-generator/) | Podcast article generator |
+| [pokieticker](./pokieticker/) | Analyze stock price changes and query SQLite database |
 | [pdf](./pdf/) | Comprehensive PDF manipulation toolkit |
 | [pptx](./pptx/) | Presentation creation and editing |
 | [port-allocator](./port-allocator/) | Automatically allocate and manage development server ports |

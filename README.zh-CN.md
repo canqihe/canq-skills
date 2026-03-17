@@ -53,6 +53,7 @@
 | [morning-report](./morning-report/) | 生成每日早报 |
 | [notebooklm](./notebooklm/) | 查询 Google NotebookLM 笔记本 |
 | [podcast-article-generator](./podcast-article-generator/) | 播客文章生成器 |
+| [pokieticker](./pokieticker/) | 分析股票涨跌原因，查询 PokieTicker 数据库 |
 | [pdf](./pdf/) | 全面的 PDF 处理工具包 |
 | [pptx](./pptx/) | 演示文稿创建和编辑 |
 | [port-allocator](./port-allocator/) | 自动分配和管理开发服务器端口 |
