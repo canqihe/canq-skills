@@ -132,9 +132,17 @@ EOF
 
 ### STEP 3: 查询相关新闻
 
-查询该日期前后（±3天）的新闻：
+⚠️ **⚠️⚠️ 重要：新闻查询必须同时使用两种方式 ⚠️⚠️⚠️**
 
-**股票**（`pokieticker.db`）：
+**问题**：`news_aligned.trade_date` 和 `news_raw.published_utc` 可能不一致
+- **真实案例**（SMCI, 2026-03-20）：
+  - 仅用 `trade_date` 查询 → 找到 1 条新闻（遗漏关键利空）
+  - 仅用 `published_utc` 查询 → 找到 5 条新闻（包含调查警报）
+  - **差异：漏掉 80% 的新闻！**
+
+✅ **正确做法：同时查询两种方式**
+
+**方式 1：按对齐日期查询**（`news_aligned.trade_date`）：
 ```bash
 sqlite3 /Users/colin/Desktop/File/PokieTicker-main/pokieticker.db <<EOF
 SELECT
@@ -142,6 +150,7 @@ SELECT
     nr.description,
     nr.publisher,
     nr.published_utc,
+    na.trade_date,
     l1.sentiment,
     l1.reason_growth,
     l1.reason_decrease,
@@ -152,6 +161,43 @@ LEFT JOIN layer1_results l1 ON na.news_id = l1.news_id AND na.symbol = l1.symbol
 WHERE na.symbol = '$SYMBOL'
   AND na.trade_date BETWEEN DATE('$DATE', '-3 days') AND DATE('$DATE', '+3 days')
 ORDER BY na.published_utc;
+EOF
+```
+
+**方式 2：按发布时间查询**（`news_raw.published_utc`）：
+```bash
+sqlite3 /Users/colin/Desktop/File/PokieTicker-main/pokieticker.db <<EOF
+SELECT
+    nr.title,
+    nr.description,
+    nr.publisher,
+    nr.published_utc,
+    DATE(nr.published_utc) as '发布日期',
+    l1.sentiment,
+    l1.reason_growth,
+    l1.reason_decrease,
+    l1.key_discussion
+FROM news_raw nr
+JOIN news_ticker nt ON nr.id = nt.news_id
+LEFT JOIN layer1_results l1 ON nr.id = l1.news_id AND nt.symbol = l1.symbol
+WHERE nt.symbol = '$SYMBOL'
+  AND DATE(nr.published_utc) BETWEEN DATE('$DATE', '-3 days') AND DATE('$DATE', '+3 days')
+ORDER BY nr.published_utc;
+EOF
+```
+
+**方式 3：统计每日新闻数**（验证完整性）：
+```bash
+sqlite3 /Users/colin/Desktop/File/PokieTicker-main/pokieticker.db <<EOF
+SELECT
+    DATE(nr.published_utc) as '日期',
+    COUNT(*) as '新闻数'
+FROM news_ticker nt
+JOIN news_raw nr ON nt.news_id = nr.id
+WHERE nt.symbol = '$SYMBOL'
+  AND DATE(nr.published_utc) >= DATE('$DATE', '-5 days')
+GROUP BY DATE(nr.published_utc)
+ORDER BY DATE(nr.published_utc) DESC;
 EOF
 ```
 
@@ -241,6 +287,33 @@ SELECT DISTINCT symbol FROM tickers WHERE symbol LIKE '%$SYMBOL%' LIMIT 10;
 EOF
 ```
 
+### 新闻查询最佳实践 ⚠️ **新增**
+
+**问题根源**：
+- `news_aligned.trade_date`：新闻对齐到的交易日（可能不等于发布日期）
+- `news_raw.published_utc`：新闻实际发布时间（UTC）
+
+**典型场景**：
+- 3/19 22:00 发布的利空新闻 → `trade_date` 可能是 3/20（对齐到下一个交易日）
+- 3/20 23:00 发布的调查新闻 → 查询 3/20 的 `trade_date` 可能找不到
+
+**正确流程**：
+```bash
+# Step 1: 按 trade_date 查询（已对齐的新闻）
+sqlite3 ... "WHERE na.trade_date BETWEEN ..."
+
+# Step 2: 按 published_utc 查询（原始发布时间）
+sqlite3 ... "WHERE DATE(nr.published_utc) BETWEEN ..."
+
+# Step 3: 对比结果，如果数量差异大 → 需要进一步调查
+# Step 4: 列出所有相关新闻的详情，避免遗漏
+```
+
+**教训总结**（SMCI 2026-03-20 案例）：
+- ❌ 仅用 `trade_date` 查询：找到 1 条 → 结论"新闻数据不足"
+- ✅ 同时用 `published_utc` 查询：找到 5 条 → 发现关键调查新闻
+- **差异：漏掉 80% 新闻，导致分析错误**
+
 ### 数据库路径
 
 - **股票数据库**: `/Users/colin/Desktop/File/PokieTicker-main/pokieticker.db`
@@ -255,6 +328,65 @@ EOF
 2. **代码不存在** → 列出可用资产
 3. **日期无数据** → 查询最接近的日期
 4. **该日期无新闻** → 说明可能原因（加密货币暂无新闻数据）
+
+---
+
+## 常见错误与教训 ⚠️ **新增**
+
+### 错误 1：新闻查询不完整导致遗漏关键信息
+
+**场景**：SMCI 2026-03-20 暴跌 33% 分析
+
+**错误做法**：
+```sql
+-- ❌ 仅使用 trade_date 查询
+WHERE na.trade_date BETWEEN DATE('2026-03-20', '-3 days') AND DATE('2026-03-20', '+3 days')
+-- 结果：找到 1 条新闻 → 结论"数据库新闻缺失"
+```
+
+**正确做法**：
+```sql
+-- ✅ 同时使用 trade_date 和 published_utc 查询
+-- 方式1: WHERE na.trade_date BETWEEN ...
+-- 方式2: WHERE DATE(nr.published_utc) BETWEEN ...
+-- 结果：找到 5 条新闻 → 发现关键调查新闻
+```
+
+**真实影响**：
+- 遗漏新闻：3/19 宣布联合创始人被捕，3 人被起诉
+- 错误结论："数据库新闻不足"
+- 实际原因：向中国走私 $25 亿 AI 服务器，违反出口管制
+
+**教训**：
+1. **永远不要依赖单一查询方式** - 必须同时使用 `trade_date` 和 `published_utc`
+2. **不要过早下结论** - 说"数据缺失"前先验证查询方式
+3. **交叉验证结果** - 对比不同查询方式的结果数量
+4. **统计每日新闻数** - 确认数据完整性后再分析
+
+---
+
+### 错误 2：涨跌幅计算忽略跳空
+
+**场景**：任何有跳空的交易日
+
+**错误做法**：
+```sql
+-- ❌ 只计算日内变化
+(close - open) / open * 100
+-- SMCI 2026-03-20: -8.84%（严重错误）
+```
+
+**正确做法**：
+```sql
+-- ✅ 计算包含跳空的真实涨跌幅
+(close - LAG(close) OVER (...)) / LAG(close) OVER (...) * 100
+-- SMCI 2026-03-20: -33.32%（正确）
+```
+
+**教训**：
+- 跳空是重要的市场信号，不能忽略
+- 盘后重大利空会导致第二天跳空
+- 真实涨跌幅 = (当天收盘 - 前一天收盘) / 前一天收盘
 
 ---
 
@@ -463,6 +595,11 @@ sqlite3 /Users/colin/Desktop/File/PokieTicker-main/crypto.db "SELECT MAX(date) a
 
 - [ ] **SQL 查询包含 `prev_close` 字段？**
   - 结果中显示前一天收盘价用于验证
+
+- [ ] **新闻查询使用了多种方式？** ⚠️ **新增**
+  - 同时使用 `trade_date` 和 `published_utc` 查询
+  - 统计每日新闻数验证完整性
+  - 对比两种查询结果，确保不遗漏
 
 **如果任何一项为"否" → 立即重新计算！**
 
